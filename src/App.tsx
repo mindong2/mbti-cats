@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import MainPage from "./pages/MainPage";
+import QuestionPage from "./pages/QuestionPage";
+import ResultPage from "./pages/ResultPage";
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import { GlobalStyle } from "./style/global";
+import styled from "styled-components";
+
+const Layout = styled.div`
+  max-width: 72rem;
+  min-height: 100vh;
+  margin: 0 auto;
+  background-color: #f2f5fb;
+  box-shadow: 0 0 2rem 0 #e2e6ee;
+  font-size: 1.6rem;
+`;
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <GlobalStyle />
+      <Layout>
+        <Router>
+          <Routes>
+            <Route path="/" element={<MainPage />} />
+            <Route path="/question" element={<QuestionPage />} />
+            <Route path="/result" element={<ResultPage />} />
+          </Routes>
+        </Router>
+      </Layout>
     </div>
   );
 }
