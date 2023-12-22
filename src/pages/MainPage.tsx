@@ -42,6 +42,7 @@ const MainPage = () => {
         <Button className="nextBtn" onClick={() => navigate("/question")}>
           테스트 시작하기
         </Button>
+        <div className="adfit" />
       </Wrapper>
     </>
   );
