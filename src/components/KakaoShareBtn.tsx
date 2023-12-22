@@ -20,7 +20,7 @@ const KakaoShareBtn = ({ name, img }: { name: string; img: string }) => {
       content: {
         title: "예비집사 판별기 결과",
         description: `예비집사님과 가장 잘 어울릴 주인님은 ${name}입니다!`,
-        imageUrl: img,
+        imageUrl: url + img,
         link: {
           mobileWebUrl: resultUrl,
           webUrl: resultUrl,
