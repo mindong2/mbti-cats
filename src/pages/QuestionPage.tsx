@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Header from "../components/Header";
 import { QuestionData } from "../stores/question/questionData";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { createSearchParams, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
