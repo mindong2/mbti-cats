@@ -4,7 +4,7 @@ export const QuestionData: IQuestion[] = [
   {
     id: 1,
     title: "새로운 고양이를 데려왔다! 나의 반응은?",
-    answerA: "머해? 이름은 뭐로 해줄까? 자꾸 말을 걸고 싶다.",
+    answerA: "뭐해? 이름은 뭐로 해줄까? 자꾸 말을 걸고 싶다.",
     answerB: "혼자만의 시간이 필요하지? 적응할 시간을 준다.",
     type: "EI",
   },
@@ -46,7 +46,7 @@ export const QuestionData: IQuestion[] = [
   {
     id: 7,
     title: "같은 집사 친구가 고양이가 아픈 것 같아 슬퍼하고있다. 나의 반응은?",
-    answerA: "'이건 이렇게 하면 어떨까?' 해결책을 함께 생각하며 정보들은 같이 찾아본다.",
+    answerA: "괜찮은 병원을 알아보며 얼른 가보라며 권유한다.",
     answerB: "'아이고,, 어쩌면 좋아..' 일단 먼저 위로를 해준다.",
     type: "TF",
   },

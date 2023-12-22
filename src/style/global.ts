@@ -20,4 +20,10 @@ export const GlobalStyle = createGlobalStyle`
     img {
         border-radius: 0.6rem;
     }
+
+    @media screen and (max-width:425px) {
+        html,body{
+            font-size: 55%;
+        }
+    }
 `;

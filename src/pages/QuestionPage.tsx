@@ -1,8 +1,8 @@
 import styled from "styled-components";
 import Header from "../components/Header";
 import { QuestionData } from "../stores/question/questionData";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { createSearchParams, useNavigate } from "react-router-dom";
 import { Button } from "react-bootstrap";
 
 const Wrapper = styled.div`
@@ -62,9 +62,20 @@ const QuestionPage = () => {
     });
     setTotalScore(addScore);
 
-    // 마지막 질문이 아닐경우
+    // 마지막 질문일 경우
     if (questionNum === QuestionData.length - 1) {
-      navigate("/result");
+      const mbti = totalScore
+        .map((item) => {
+          return item.score >= 2 ? item.type[0] : item.type[1];
+        })
+        .join("");
+
+      navigate({
+        pathname: "/result",
+        search: `?${createSearchParams({
+          mbti,
+        })}`,
+      });
     }
     setQuestionNum((prev) => prev + 1);
   };

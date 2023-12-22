@@ -3,7 +3,7 @@ import { ResultData } from "../stores/result/resultData";
 import Header from "../components/Header";
 import { Wrapper } from "./MainPage";
 import { Button } from "react-bootstrap";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const ImgWrap = styled.div`
   text-align: center;
@@ -16,15 +16,25 @@ const ResultImg = styled.img`
 
 const ResultPage = () => {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const mbti = searchParams.get("mbti");
+
+  const catInfo = ResultData.filter((v) => v.best === mbti)[0];
+  const catsFriend = ResultData.filter((v) => v.best === catInfo.mbti)[0];
   return (
     <>
       <Header type="title" />
       <Wrapper>
         <ImgWrap>
-          <ResultImg src={ResultData[10].img} alt={`${ResultData[10].name}`} />
+          <ResultImg src={catInfo.img} alt={`${catInfo.name}`} />
         </ImgWrap>
-        <div>{ResultData[10].name}</div>
-        <div>{ResultData[10].desc}</div>
+        <div>{mbti}성향의 집사님과 잘 어울릴 주인님은</div>
+        <div>{catInfo.name}입니다!</div>
+        <div>{catInfo.desc}</div>
+        <>집사의 mbti: {mbti}</>
+        <>고양이 mbti: {catInfo.mbti}</>
+
+        <>주인님과 친구가되기 쉬운 고양이는 {catsFriend.name}에요!!</>
         <Button
           className="nextBtn"
           onClick={() => {
