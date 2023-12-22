@@ -12,7 +12,7 @@ const KakaoShareBtn = ({ name, img }: { name: string; img: string }) => {
     if (!Kakao.isInitialized()) {
       Kakao.init(javascriptKey);
     }
-  }, []);
+  }, [javascriptKey]);
 
   const shareKakao = () => {
     Kakao.Share.sendDefault({
