@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import { Wrapper } from "./MainPage";
 import { Button } from "react-bootstrap";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import KakaoShareBtn from "../components/KakaoShareBtn";
 
 const ImgWrap = styled.div`
   text-align: center;
@@ -28,13 +29,11 @@ const ResultPage = () => {
         <ImgWrap>
           <ResultImg src={catInfo.img} alt={`${catInfo.name}`} />
         </ImgWrap>
-        <div>{mbti}성향의 집사님과 잘 어울릴 주인님은</div>
+        <div>집사님과 잘 어울릴 주인님은..!</div>
         <div>{catInfo.name}입니다!</div>
         <div>{catInfo.desc}</div>
-        <>집사의 mbti: {mbti}</>
-        <>고양이 mbti: {catInfo.mbti}</>
 
-        <>주인님과 친구가되기 쉬운 고양이는 {catsFriend.name}에요!!</>
+        <div style={{ color: "#fe3939" }}>우리 고양이와 친구가되기 쉬운 고양이는 {catsFriend.name}입니다!</div>
         <Button
           className="nextBtn"
           onClick={() => {
@@ -45,6 +44,7 @@ const ResultPage = () => {
         >
           다시하기
         </Button>
+        <KakaoShareBtn name={catInfo.name} img={catInfo.img} />
       </Wrapper>
     </>
   );
